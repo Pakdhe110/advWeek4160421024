@@ -6,6 +6,7 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.example.advweek4160421024.databinding.StudentListItemBinding
 import com.example.advweek4160421024.databinding.WebListItemBinding
+import com.example.advweek4160421024.model.Student
 import com.example.advweek4160421024.model.Web
 import com.example.advweek4160421024.viewmodel.ListViewModel
 
@@ -29,5 +30,12 @@ class WebListAdapter(val webList: ArrayList<Web>):RecyclerView.Adapter<WebListAd
 
     override fun getItemCount(): Int {
         return webList.size
+    }
+
+
+    fun updateWebList(newWebList:ArrayList<Web>){
+        webList.clear()
+        webList.addAll(newWebList)
+        notifyDataSetChanged()
     }
 }
