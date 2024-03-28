@@ -24,4 +24,9 @@
         android:name="com.example.advweek4160421024.view.StudentDetailFragment"
         android:label="fragment_student_detail"
         tools:layout="@layout/fragment_student_detail" />
+    <fragment
+        android:id="@+id/webListFragment"
+        android:name="com.example.advweek4160421024.view.WebListFragment"
+        android:label="fragment_web_list"
+        tools:layout="@layout/fragment_web_list" />
 </navigation>
