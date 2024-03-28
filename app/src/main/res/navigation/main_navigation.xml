@@ -3,13 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_navigation"
-    app:startDestination="@id/mainActivity">
+    app:startDestination="@id/webListFragment">
 
-    <activity
-        android:id="@+id/mainActivity"
-        android:name="com.example.advweek4160421024.view.MainActivity"
-        android:label="activity_main"
-        tools:layout="@layout/activity_main" />
     <fragment
         android:id="@+id/studentListFragment"
         android:name="com.example.advweek4160421024.view.StudentListFragment"
@@ -28,5 +23,9 @@
         android:id="@+id/webListFragment"
         android:name="com.example.advweek4160421024.view.WebListFragment"
         android:label="fragment_web_list"
-        tools:layout="@layout/fragment_web_list" />
+        tools:layout="@layout/fragment_web_list" >
+        <action
+            android:id="@+id/actionStudentDetail"
+            app:destination="@id/studentDetailFragment" />
+    </fragment>
 </navigation>

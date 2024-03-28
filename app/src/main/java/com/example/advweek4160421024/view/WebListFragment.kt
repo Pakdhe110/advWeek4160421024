@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.advweek4160421024.R
 import com.example.advweek4160421024.databinding.FragmentStudentListBinding
 import com.example.advweek4160421024.databinding.FragmentWebListBinding
@@ -28,6 +30,23 @@ class WebListFragment : Fragment() {
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        viewModel = ViewModelProvider(this).get(LiveModel::class.java)
+        viewModel.refresh()
+
+        binding.recViewWeb.layoutManager = LinearLayoutManager(context)
+        binding.recViewWeb.adapter = webListAdapter
+
+        ObserveViewModel()
+        binding.refreshLayoutWeb.setOnClickListener{
+            binding.recViewWeb.visibility = View.GONE
+            binding.txtErrorWeb.visibility = View.GONE
+            binding.progBar.visibility = View.VISIBLE
+            viewModel.refresh()
+            binding.refreshLayoutWeb.isRefreshing  = false
+        }
+    }
     fun ObserveViewModel(){
 
         viewModel.webLD.observe(viewLifecycleOwner, Observer {
