@@ -17,6 +17,7 @@ import com.example.advweek4160421024.databinding.FragmentStudentDetailBinding
 import com.example.advweek4160421024.databinding.StudentListItemBinding
 import com.example.advweek4160421024.model.Student
 import com.example.advweek4160421024.viewmodel.DetailViewModel
+import com.squareup.picasso.Picasso
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.schedulers.Schedulers
@@ -52,6 +53,8 @@ class StudentDetailFragment : Fragment() {
     }
 
     private fun updateUI(student: Student){
+        val url = "https://images.unsplash.com/photo-1712698396006-1996dc7cb2cc?q=80&w=1936&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        Picasso.get().load(url).into(binding.imgStudent)
         binding.txtID.setText(student.id)
         binding.txtName.setText(student.name)
         binding.txtBod.setText(student.dob)
