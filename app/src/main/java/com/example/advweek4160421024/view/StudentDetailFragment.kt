@@ -47,12 +47,12 @@ class StudentDetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel= ViewModelProvider(this).get(DetailViewModel::class.java)
-        viewModel.fetch()
+        viewModel.fetch(studentId = binding.txtID.text.toString())
         viewModel.studentLD.observe(viewLifecycleOwner, Observer{ student -> updateUI(student)})
     }
 
     private fun updateUI(student: Student){
-        binding.txtID.setText((student.id))
+        binding.txtID.setText(student.id)
         binding.txtName.setText(student.name)
         binding.txtBod.setText(student.dob)
         binding.txtPhone.setText(student.phone)
@@ -62,7 +62,7 @@ class StudentDetailFragment : Fragment() {
         viewModel.studentLD.observe(viewLifecycleOwner, Observer {
             var student = it
 
-            holder.binding.btnUpdate?.setOnClickListener{
+            binding.btnUpdate.setOnClickListener{
                 Observable.timer(5, TimeUnit.SECONDS)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
