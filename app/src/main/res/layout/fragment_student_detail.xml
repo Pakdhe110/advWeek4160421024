@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<layout>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -17,6 +18,7 @@
             android:layout_marginStart="151dp"
             android:layout_marginTop="112dp"
             android:layout_marginEnd="151dp"
+            android:imageUrl="@{student.photoUrl}"
             android:src="@drawable/ic_launcher_foreground"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -37,6 +39,7 @@
                 android:id="@+id/txtID"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="@{student.id}"
                 android:hint="Student Id" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -53,6 +56,7 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/txtName"
+                android:text="@{student.name}"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Student Name" />
@@ -71,6 +75,7 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/txtBod"
+                android:text="@{student.dob}"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Birth of Date" />
@@ -88,6 +93,7 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/txtPhone"
+                android:text= "@{student.phone}"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Phone" />
@@ -100,7 +106,17 @@
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="92dp"
             android:text="Button"
+            android:tag = "@{student.id}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
+    <data>
+        <variable
+            name="student"
+            type="com.example.advweek4160421024.model.Student" />
+        <variable
+            name="listener"
+            type="com.example.advweek4160421024.view.ButtonDetailClickListener" />
+    </data>
+</layout>

@@ -18,7 +18,7 @@ class WebListAdapter(val webList: ArrayList<Web>):RecyclerView.Adapter<WebListAd
         holder.binding.txtUrl.text = webList[position].url
 
         holder.binding.btnBuka.setOnClickListener {
-            val action = StudentListFragmentDirections.actionStudentDetail()
+            val action = StudentListFragmentDirections.actionStudentDetail(it.id.toString())
             Navigation.findNavController(it).navigate(action)
         }
     }
